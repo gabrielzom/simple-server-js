@@ -3,9 +3,6 @@ import { config } from 'dotenv'
 config()
 
 const connectToDatabase = async () => {
-  if (global.connection && global.connection.state !== 'disconnected') {
-    return global.connection
-  }
   const connection = await mysql.createConnection({
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
@@ -13,7 +10,6 @@ const connectToDatabase = async () => {
     password: process.env.DB_PWD
   })
   console.log('MySQL connected')
-  global.connection = connection
   return connection
 }
 
