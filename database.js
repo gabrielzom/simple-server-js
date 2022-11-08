@@ -1,14 +1,16 @@
 import mysql from 'mysql2/promise'
+import { config } from 'dotenv'
+config()
 
 const connectToDatabase = async () => {
   if (global.connection && global.connection.state !== 'disconnected') {
     return global.connection
   }
   const connection = await mysql.createConnection({
-    host: 'localhost',
-    database: 'locadora_pti_bd',
-    user: 'root',
-    password: 'biel'
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PWD
   })
   console.log('MySQL connected')
   global.connection = connection
