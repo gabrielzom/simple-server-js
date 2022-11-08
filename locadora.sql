@@ -33,7 +33,7 @@ CREATE TABLE `cartao` (
   PRIMARY KEY (`numero`,`validade`),
   KEY `fk_cliente_cartao` (`id_cliente`),
   CONSTRAINT `fk_cliente_cartao` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `cliente` (
   `celular` varchar(14) NOT NULL,
   `email` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=501 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ CREATE TABLE `cobranca` (
   PRIMARY KEY (`id`),
   KEY `fk_viagem_cobranca` (`id_viagem`),
   CONSTRAINT `fk_viagem_cobranca` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `estacionamento` (
   `sigla_uf` char(2) NOT NULL,
   `cep` varchar(8) NOT NULL,
   PRIMARY KEY (`cnpj`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `veiculo` (
   PRIMARY KEY (`placa`),
   KEY `fk_estacionamento_cnpj` (`cnpj_estacionamento_atual`),
   CONSTRAINT `fk_estacionamento_cnpj` FOREIGN KEY (`cnpj_estacionamento_atual`) REFERENCES `estacionamento` (`cnpj`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +187,7 @@ CREATE TABLE `viagem` (
   CONSTRAINT `fk_cliente_viagem` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`),
   CONSTRAINT `fk_estacionamento_destino` FOREIGN KEY (`cnpj_estacionamento_destino`) REFERENCES `estacionamento` (`cnpj`),
   CONSTRAINT `fk_estacionamento_origem` FOREIGN KEY (`cnpj_estacionamento_origem`) REFERENCES `estacionamento` (`cnpj`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

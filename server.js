@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import { executeScript } from './database.js'
+import { config } from 'dotenv'
+config()
 
 const app = express();
 
@@ -8,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 
-app.listen(8080, () => console.log(`App listen in port: http://localhost:8080`))
+app.listen(proccess.env.PORT || 8080, () => console.log(`App listen in port: http://localhost:8080`))
 
 const executeRequest = (req, res) => {
 
