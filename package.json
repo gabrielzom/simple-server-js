@@ -4,14 +4,17 @@
   "description": "A simple server with express for requisitions",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "author": "gabriel.nascimento",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "pm2": "^5.2.0"
   },
   "devDependencies": {
