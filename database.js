@@ -4,7 +4,7 @@ config()
 
 const connectToDatabase = async () => {
   if(global.connection) {
-    console.log('Stop here')
+    console.log('MySQL already connected')
     return global.connection
   }
   const connection = await mysql.createConnection({
