@@ -18,8 +18,6 @@ const connectToDatabase = async () => {
   return connection
 }
 
-connectToDatabase()
-
 export const executeScript = async script => {
   const connection = await connectToDatabase()
   return await connection.query(script)
